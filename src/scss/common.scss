@@ -1,1 +1,36 @@
 // Заголовки, загальні БЕМ блоки та інше...
+.block-header {
+    display: grid;
+    gap: toRem(24);
+    &--center {
+        text-align: center;
+    }
+
+    &--inline {
+        grid-template-columns: minmax(auto,toRem(586)) minmax(auto, toRem(613));
+        justify-content: space-between;
+        gap: toRem(24);
+        align-items: end;
+    }
+
+    &__title {
+        color: $darkColor;
+        @include adaptiveValue("font-size", 52, 32);
+        font-weight: 700;
+        line-height: 1.23;
+        &--big {
+            @include adaptiveValue("font-size", 64, 44);
+        }
+
+        &--white {
+            color: #fff;
+        }
+    }
+
+
+    &__text {
+        p {
+            line-height: 1.55;
+        }
+    }
+}
