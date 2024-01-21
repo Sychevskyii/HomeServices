@@ -1,0 +1,50 @@
+.header {
+    background-color: $bgColor;
+    &__container {
+        min-height: toRem(80);
+        display: grid;
+        grid-template-columns: toRem(200) 1fr toRem(200);
+        align-items: center;
+        gap: toRem(15);
+        padding-top: toRem(10);
+        padding-bottom: toRem(10);
+    }
+
+    &__logo {
+    }
+
+    &__menu {
+    }
+
+    &__schedule {
+        justify-self: end;
+    }
+}
+.logo {
+}
+.menu {
+    justify-self: center;
+    &__icon {
+    }
+
+    &__body {
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: toRem(3);
+        @include adaptiveValue("column-gap", 57, 15);
+    }
+
+    &__item {
+    }
+
+    &__link {
+        font-weight: 700;
+        line-height: 1.33;
+        color: #fff;
+    }
+}
+.icon-menu {
+}
