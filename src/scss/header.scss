@@ -1,16 +1,28 @@
 .header {
     background-color: $bgColor;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
     &__container {
         min-height: toRem(80);
         display: grid;
-        grid-template-columns: toRem(200) 1fr toRem(200);
+        grid-template-columns: toRem(170) 1fr toRem(170);
         align-items: center;
         gap: toRem(15);
         padding-top: toRem(10);
         padding-bottom: toRem(10);
+        @media (max-width:$mobile) {
+            justify-content: space-between;
+            grid-template-columns: auto auto;
+            min-height: toRem(55); 
+        }
     }
 
     &__logo {
+        position: relative;
+        z-index: 5;
     }
 
     &__menu {
@@ -18,6 +30,25 @@
 
     &__schedule {
         justify-self: end;
+        font-weight: 700;
+        line-height: 1.33;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: toRem(10);
+        &::before{
+            content:'';
+            height: toRem(12);
+            width: toRem(12);
+            flex: 0 0 toRem(12);
+            background-color: #FF5E5E;
+            border-radius: 50%;
+        }
+        @media (max-width: $mobile) {
+			position: relative;
+			z-index: 5;
+            justify-content: end;
+		}
     }
 }
 .logo {
@@ -34,7 +65,16 @@
         display: flex;
         flex-wrap: wrap;
         row-gap: toRem(3);
-        @include adaptiveValue("column-gap", 57, 15);
+        @include adaptiveValue("column-gap", 57, 15, 0, $containerWidth, 768);
+        @media (max-width: $mobile) {
+			font-size: toRem(30);
+			align-items: end;
+			flex-direction: column;
+			row-gap: toRem(30);
+			position: relative;
+			z-index: 5;
+            flex: 1 1 auto;
+		}
     }
 
     &__item {
@@ -44,6 +84,11 @@
         font-weight: 700;
         line-height: 1.33;
         color: #fff;
+        @media (any-hover: hover){
+            &:hover{
+                text-decoration: underline;
+            }
+        }
     }
 }
 .icon-menu {

@@ -8,20 +8,26 @@
 			position: fixed;
 			width: 100%;
 			height: 100%;
-			left: -100%;
+			left: 100%;
 			top: 0;
 			overflow: auto;
-			padding: toRem(50) toRem(15) toRem(15) toRem(30);
+			display: flex;
+			flex-direction: column;
+			row-gap: toRem(40);
+			background-color: $bgColorSemi;
+			padding: toRem(120) toRem(15) toRem(25) toRem(15);
 			transition: left 0.3s;
 			&::before {
 				content: "";
 				position: fixed;
 				width: 100%;
-				height: toRem(70);
+				height: toRem(55);
 				left: -100%;
+				left: 0;
 				top: 0;
 				transition: left 0.3s;
 				z-index: 2;
+				background-color: $bgColor;
 			}
 			.menu-open & {
 				left: 0;
@@ -33,8 +39,7 @@
 	}
 	// .menu__list
 	&__list {
-		@media (max-width: $mobile) {
-		}
+		
 	}
 	// .menu__item
 	&__item {
@@ -67,7 +72,7 @@
 			position: absolute;
 			width: 100%;
 			height: toRem(2);
-			background-color: #000;
+			background-color: #fff;
 		}
 		&::before {
 			top: 0;

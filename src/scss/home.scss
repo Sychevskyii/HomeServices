@@ -1,3 +1,33 @@
 //====================================================================================================
+.hero {
+    background-color: $bgColor;
+    display: grid;
+    padding: toRem(80) toRem(15) toRem(60) toRem(15);
+    grid-template-columns: 21.8% 1fr 21.8%;
+    &__image {
+        border-radius: toRem(24);
+            overflow: hidden;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__content {
+    }
+
+    &__block-header {
+    }
+}
+.block-header {
+
+    &__title {
+    }
+
+    &__title--white {
+    }
+
+    &__title--big {
+    }
+}
 
 //====================================================================================================

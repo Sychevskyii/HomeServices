@@ -1,16 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	@@include('html/_head.htm',{
-	"title":"HomePage"
-	})
-	<body>
-		<div class="wrapper">
-			@@include('html/_header.htm',{})
-			<main class="page">
-				
-			</main>
-			@@include('html/_footer.htm',{})
-		</div>
-		@@include('html/_js.htm',{})
-	</body>
+  @@include('html/_head.htm',{ "title":"HomePage" })
+  <body>
+    <div class="wrapper">
+      @@include('html/_header.htm',{})
+      <main class="page">
+        <section class="hero">
+          <div class="hero__image">
+            <img src="@img/hero/image-left.jpg" alt="A man" />
+          </div>
+          <div class="hero__content">
+            <div class="hero__block-header block-header">
+              <h1
+                class="block-header__title block-header__title--white block-header__title--big"
+              >
+                Need improvement or repair your home? we can help!
+              </h1>
+            </div>
+          </div>
+          <div class="hero__image">
+            <img src="@img/hero/image-right.jpg" alt="A man" />
+          </div>
+        </section>
+      </main>
+      @@include('html/_footer.htm',{})
+    </div>
+    @@include('html/_js.htm',{})
+  </body>
 </html>
