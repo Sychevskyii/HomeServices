@@ -35,6 +35,36 @@
         &__title {
         }
     }
+
+    &__items {
+        &:not(:last-child) {margin-bottom: toRem(24);}
+    }
+}
+
+.items-hero {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: toRem(52);
+    &__item {
+        color: $greyColor;
+        font-weight: 700;
+        line-height: 1.4;
+        position: relative;
+        &:not(:last-child) {
+            &::after{
+                content:'';
+                position: absolute;
+                right: toRem(-30);
+                top: calc(50% - toRem(2));
+                width: toRem(5);
+                height: toRem(5);
+                border-radius: 50%;
+                background-color: $greyColor;
+            }
+        }
+    }
 }
 
 
