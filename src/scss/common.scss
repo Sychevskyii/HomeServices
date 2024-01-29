@@ -52,6 +52,6 @@
         color: $bgColorLite;
         padding-left: toRem(32);
         line-height: 1.06;
-        background: url(@img/icons/check.svg) left toRem(1) no-repeat;
+        background: url("@img/icons/check.svg") left toRem(1) no-repeat;
     }
 }
