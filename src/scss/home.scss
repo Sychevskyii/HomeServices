@@ -30,6 +30,12 @@
         align-items: center;
     }
 
+    &__main {
+        display: grid;
+        gap: toRem(24);
+        &:not(:last-child) {margin-bottom: toRem(48);}
+    }
+
     &__block-header {
         max-width: toRem(670);
         &__title {
@@ -37,7 +43,11 @@
     }
 
     &__items {
-        &:not(:last-child) {margin-bottom: toRem(24);}
+    }
+
+    &__done {
+        justify-content: center;
+        align-items: center;
     }
 }
 
