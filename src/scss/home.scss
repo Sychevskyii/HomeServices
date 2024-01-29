@@ -1,10 +1,17 @@
 //====================================================================================================
 .hero {
     background-color: $bgColor;
-    display: grid;
     padding: toRem(80) toRem(15) toRem(60) toRem(15);
     min-height: 100vh;
-    grid-template-columns: auto 1fr auto;
+    display: grid;
+    position: relative;
+    @media (min-width:$tablet) {
+        grid-template-columns: auto 1fr auto;
+        
+    }
+    @media (max-width:$tablet){
+        padding: toRem(80) toRem(15) toRem(30) toRem(15);
+    }
     &__image {
         @include adaptiveValue("width", 412, 200, 0, $containerWidth, 991.98);
         border-radius: toRem(24);
@@ -13,11 +20,15 @@
             max-width: 100%;
             object-position: top;
         }
+        @media (max-width:$tablet){
+            display: none;
+        }
     }
 
     &__body {
         display: flex;
         flex-direction: column;
+        row-gap: toRem(50);
         @include adaptiveValue("padding-left", 83, 15, 0, $containerWidth, 991.98);
         @include adaptiveValue("padding-right", 83, 15, 0, $containerWidth, 991.98);
     }
@@ -52,6 +63,9 @@
 
     &__advantages {
     }
+
+    &__decor {
+    }
 }
 
 .items-hero {
@@ -82,12 +96,33 @@
 
 .advantages-hero {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(toRem(169), 1fr));
-    @include adaptiveValue("gap", 64, 20);
+    grid-template-columns: repeat(4, auto);
+    @include adaptiveValue("column-gap", 64, 20);
+    row-gap: toRem(15);
+    @media (max-width: em(1920)){
+        grid-template-columns: repeat(2, auto);  
+    }
+    @media (max-width:$mobileSmall){
+        grid-template-columns: auto;  
+    }
     &__item {
         display: flex;
         align-items: center;
         gap: toRem(16);
+        position: relative;
+        @media (min-width: em(1920)) {
+            &:not(:last-child) {
+                &::after{
+                content:'';
+                position: absolute;
+                @include adaptiveValue("right", -32, -20);
+                top: 0;
+                height: 100%;
+                width: toRem(1);
+                background: linear-gradient(0deg, rgba(20, 34, 87, 0) 0%, rgba(79, 102, 183, 1), rgba(20, 34, 87, 0) 100%);
+            }
+        }
+    }
     }
 
     &__icon {
@@ -96,6 +131,7 @@
         justify-content: center;
         border-radius: 50%;
         flex: 0 0 toRem(48);
+        width: toRem(48);
         height: toRem(48);
         padding: toRem(5);
         background-color: $bgColorSemi;
@@ -105,6 +141,62 @@
         color: #fff;
         font-weight: 600;
         line-height: 1.33;
+    }
+}
+
+.decor-hero {
+    &::before,&::after{
+        content:'';
+        
+    }
+    &::before{
+        left: 0;
+    }
+    
+    &__item {
+        position: absolute;
+        bottom: 0;
+        height: toRem(50);
+        @include adaptiveValue("width", 430, 200, 0, $containerWidth, 991.98);
+        background-color: #fff;
+        @media (min-width:$tablet){
+            &:first-child{
+                left: 0;
+                border-radius: 0 toRem(10) 0 0;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    width: 0;
+                    height: 0;
+                    transform: translate(calc(100% - toRem(5)), toRem(0.5));
+                    border-top: toRem(50) solid transparent;
+                    border-left: toRem(70) solid #fff;
+                    border-bottom: 0 solid transparent;
+                }
+            }
+            &:last-child{
+                right: 0;
+                border-radius: toRem(10) 0 0 0;
+                &::after{
+                    content:'';
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 0;
+                    height: 0;
+                    transform: translate(calc(-100% + toRem(5)), toRem(0.5));
+                    border-top: toRem(50) solid transparent;
+                    border-right: toRem(70) solid #fff;
+                    border-bottom: 0 solid transparent;
+                }
+            }
+        }
+        @media (max-width:$tablet){
+            display: none;
+        }
     }
 }
 

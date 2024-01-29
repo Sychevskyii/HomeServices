@@ -19,7 +19,7 @@
         font-weight: 700;
         line-height: 1.23;
         &--big {
-            @include adaptiveValue("font-size", 64, 44);
+            @include adaptiveValue("font-size", 64, 38);
         }
 
         &--white {
@@ -47,11 +47,11 @@
     display: flex;
     flex-wrap: wrap;
     column-gap: toRem(40);
-    row-gap: toRem(3);
+    row-gap: toRem(8);
     &__item {
         color: $bgColorLite;
         padding-left: toRem(32);
-        line-height: 1.06;
+        line-height: 1.3;
         background: url("@img/icons/check.svg") left toRem(1) no-repeat;
     }
 }
