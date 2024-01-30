@@ -201,16 +201,22 @@
 }
 
 //====================================================================================================
-.services {
-
+.about {
+    @include adaptiveValue("padding-top", 123, 40);
+    @include adaptiveValue("padding-bottom", 64, 40);
     &__container {
         display: grid;
+        row-gap: toRem(30);
         grid-template-columns: repeat(2, 1fr);
+        @media (max-width:$tablet){
+            grid-template-columns: auto; 
+        }
     }
 
     &__body {
-        max-width: toRem(580);
+        @include adaptiveValue("padding-top", 100, 30, 2, $containerWidth, 991.98);
         @media (min-width:$tablet){
+            max-width: toRem(580);
             padding-right: toRem(20); 
         }
     }
@@ -222,22 +228,46 @@
     }
 
     &__items {
+        display: grid;
+        @include adaptiveValue("gap", 32, 15);
+        grid-template-columns: repeat(2, 1fr);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 56, 30);
+        }
+        @media (max-width: em(540)){
+              grid-template-columns: auto;
+        }
     }
 
     &__item {
+        background: url('@img/icons/check-dark.svg') 0 toRem(7) no-repeat;
+        padding-left: toRem(28);
+        font-size: toRem(20);
+        font-weight: 700;
+        color: $bgColorSemi;
+        line-height: 1.4;
     }
 
     &__info {
+        border-radius: toRem(24);
+        background-color: $bgColorLite;
+        padding: toRem(12) toRem(32);
+        color: #fff;
+        line-height: 1.55;
+        a {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        @media (min-width:$tablet){
+            max-width: toRem(450); 
+        }
     }
 
     &__image {
+        img {
+            max-width: 100%;
+            text-align: center;
+        }
     }
 }
-.block-header {
-
-    &__title {
-    }
-
-    &__text {
-    }
-}
+//====================================================================================================
