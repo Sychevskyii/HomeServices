@@ -201,3 +201,43 @@
 }
 
 //====================================================================================================
+.services {
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__body {
+        max-width: toRem(580);
+        @media (min-width:$tablet){
+            padding-right: toRem(20); 
+        }
+    }
+
+    &__block-header {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 54, 30);
+        }
+    }
+
+    &__items {
+    }
+
+    &__item {
+    }
+
+    &__info {
+    }
+
+    &__image {
+    }
+}
+.block-header {
+
+    &__title {
+    }
+
+    &__text {
+    }
+}
