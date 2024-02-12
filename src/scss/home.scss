@@ -1,273 +1,360 @@
 //====================================================================================================
 .hero {
-    background-color: $bgColor;
-    padding: toRem(80) toRem(15) toRem(60) toRem(15);
-    min-height: 100vh;
+  background-color: $bgColor;
+  padding: toRem(80) toRem(15) toRem(60) toRem(15);
+  min-height: 100vh;
+  display: grid;
+  position: relative;
+  @media (min-width: $tablet) {
+    grid-template-columns: auto 1fr auto;
+  }
+  @media (max-width: $tablet) {
+    padding: toRem(80) toRem(15) toRem(30) toRem(15);
+  }
+  &__image {
+    @include adaptiveValue("width", 412, 200, 0, $containerWidth, 991.98);
+    border-radius: toRem(24);
+    overflow: hidden;
+    img {
+      max-width: 100%;
+      object-position: top;
+    }
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: toRem(50);
+    @include adaptiveValue("padding-left", 83, 15, 0, $containerWidth, 991.98);
+    @include adaptiveValue("padding-right", 83, 15, 0, $containerWidth, 991.98);
+  }
+
+  &__content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__main {
     display: grid;
-    position: relative;
-    @media (min-width:$tablet) {
-        grid-template-columns: auto 1fr auto;
-        
+    gap: toRem(24);
+    &:not(:last-child) {
+      margin-bottom: toRem(48);
     }
-    @media (max-width:$tablet){
-        padding: toRem(80) toRem(15) toRem(30) toRem(15);
-    }
-    &__image {
-        @include adaptiveValue("width", 412, 200, 0, $containerWidth, 991.98);
-        border-radius: toRem(24);
-        overflow: hidden;
-        img {
-            max-width: 100%;
-            object-position: top;
-        }
-        @media (max-width:$tablet){
-            display: none;
-        }
-    }
+  }
 
-    &__body {
-        display: flex;
-        flex-direction: column;
-        row-gap: toRem(50);
-        @include adaptiveValue("padding-left", 83, 15, 0, $containerWidth, 991.98);
-        @include adaptiveValue("padding-right", 83, 15, 0, $containerWidth, 991.98);
+  &__block-header {
+    max-width: toRem(670);
+    &__title {
     }
+  }
 
-    &__content {
-        display: flex;
-        flex: 1 1 auto;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  &__items {
+  }
 
-    &__main {
-        display: grid;
-        gap: toRem(24);
-        &:not(:last-child) {margin-bottom: toRem(48);}
-    }
+  &__done {
+    justify-content: center;
+    align-items: center;
+  }
 
-    &__block-header {
-        max-width: toRem(670);
-        &__title {
-        }
-    }
+  &__advantages {
+  }
 
-    &__items {
-    }
-
-    &__done {
-        justify-content: center;
-        align-items: center;
-    }
-
-    &__advantages {
-    }
-
-    &__decor {
-    }
+  &__decor {
+  }
 }
 
 .items-hero {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: toRem(52);
-    &__item {
-        color: $greyColor;
-        font-weight: 700;
-        line-height: 1.4;
-        position: relative;
-        &:not(:last-child) {
-            &::after{
-                content:'';
-                position: absolute;
-                right: toRem(-30);
-                top: calc(50% - toRem(2));
-                width: toRem(5);
-                height: toRem(5);
-                border-radius: 50%;
-                background-color: $greyColor;
-            }
-        }
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: toRem(52);
+  &__item {
+    color: $greyColor;
+    font-weight: 700;
+    line-height: 1.4;
+    position: relative;
+    &:not(:last-child) {
+      &::after {
+        content: "";
+        position: absolute;
+        right: toRem(-30);
+        top: calc(50% - toRem(2));
+        width: toRem(5);
+        height: toRem(5);
+        border-radius: 50%;
+        background-color: $greyColor;
+      }
     }
+  }
 }
 
 .advantages-hero {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    @include adaptiveValue("column-gap", 64, 20);
-    row-gap: toRem(15);
-    @media (max-width: em(1920)){
-        grid-template-columns: repeat(2, auto);  
-    }
-    @media (max-width:$mobileSmall){
-        grid-template-columns: auto;  
-    }
-    &__item {
-        display: flex;
-        align-items: center;
-        gap: toRem(16);
-        position: relative;
-        @media (min-width: em(1920)) {
-            &:not(:last-child) {
-                &::after{
-                content:'';
-                position: absolute;
-                @include adaptiveValue("right", -32, -20);
-                top: 0;
-                height: 100%;
-                width: toRem(1);
-                background: linear-gradient(0deg, rgba(20, 34, 87, 0) 0%, rgba(79, 102, 183, 1), rgba(20, 34, 87, 0) 100%);
-            }
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  @include adaptiveValue("column-gap", 64, 20);
+  row-gap: toRem(15);
+  @media (max-width: em(1920)) {
+    grid-template-columns: repeat(2, auto);
+  }
+  @media (max-width: $mobileSmall) {
+    grid-template-columns: auto;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: toRem(16);
+    position: relative;
+    @media (min-width: em(1920)) {
+      &:not(:last-child) {
+        &::after {
+          content: "";
+          position: absolute;
+          @include adaptiveValue("right", -32, -20);
+          top: 0;
+          height: 100%;
+          width: toRem(1);
+          background: linear-gradient(
+            0deg,
+            rgba(20, 34, 87, 0) 0%,
+            rgba(79, 102, 183, 1),
+            rgba(20, 34, 87, 0) 100%
+          );
         }
+      }
     }
-    }
+  }
 
-    &__icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        flex: 0 0 toRem(48);
-        width: toRem(48);
-        height: toRem(48);
-        padding: toRem(5);
-        background-color: $bgColorSemi;
-    }
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex: 0 0 toRem(48);
+    width: toRem(48);
+    height: toRem(48);
+    padding: toRem(5);
+    background-color: $bgColorSemi;
+  }
 
-    &__text {
-        color: #fff;
-        font-weight: 600;
-        line-height: 1.33;
-    }
+  &__text {
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.33;
+  }
 }
 
 .decor-hero {
-    &::before,&::after{
-        content:'';
-        
-    }
-    &::before{
+  &::before,
+  &::after {
+    content: "";
+  }
+  &::before {
+    left: 0;
+  }
+
+  &__item {
+    position: absolute;
+    bottom: 0;
+    height: toRem(50);
+    @include adaptiveValue("width", 430, 200, 0, $containerWidth, 991.98);
+    background-color: #fff;
+    @media (min-width: $tablet) {
+      &:first-child {
         left: 0;
-    }
-    
-    &__item {
-        position: absolute;
-        bottom: 0;
-        height: toRem(50);
-        @include adaptiveValue("width", 430, 200, 0, $containerWidth, 991.98);
-        background-color: #fff;
-        @media (min-width:$tablet){
-            &:first-child{
-                left: 0;
-                border-radius: 0 toRem(10) 0 0;
-                &::after{
-                    content: '';
-                    position: absolute;
-                    right: 0;
-                    bottom: 0;
-                    width: 0;
-                    height: 0;
-                    transform: translate(calc(100% - toRem(5)), toRem(0.5));
-                    border-top: toRem(50) solid transparent;
-                    border-left: toRem(70) solid #fff;
-                    border-bottom: 0 solid transparent;
-                }
-            }
-            &:last-child{
-                right: 0;
-                border-radius: toRem(10) 0 0 0;
-                &::after{
-                    content:'';
-                    content: '';
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    width: 0;
-                    height: 0;
-                    transform: translate(calc(-100% + toRem(5)), toRem(0.5));
-                    border-top: toRem(50) solid transparent;
-                    border-right: toRem(70) solid #fff;
-                    border-bottom: 0 solid transparent;
-                }
-            }
+        border-radius: 0 toRem(10) 0 0;
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 0;
+          height: 0;
+          transform: translate(calc(100% - toRem(5)), toRem(0.5));
+          border-top: toRem(50) solid transparent;
+          border-left: toRem(70) solid #fff;
+          border-bottom: 0 solid transparent;
         }
-        @media (max-width:$tablet){
-            display: none;
+      }
+      &:last-child {
+        right: 0;
+        border-radius: toRem(10) 0 0 0;
+        &::after {
+          content: "";
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 0;
+          height: 0;
+          transform: translate(calc(-100% + toRem(5)), toRem(0.5));
+          border-top: toRem(50) solid transparent;
+          border-right: toRem(70) solid #fff;
+          border-bottom: 0 solid transparent;
         }
+      }
     }
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
 }
 
 //====================================================================================================
 .about {
-    @include adaptiveValue("padding-top", 123, 40);
-    @include adaptiveValue("padding-bottom", 64, 40);
-    &__container {
-        display: grid;
-        row-gap: toRem(30);
-        grid-template-columns: repeat(2, 1fr);
-        @media (max-width:$tablet){
-            grid-template-columns: auto; 
-        }
+  @include adaptiveValue("padding-top", 123, 40);
+  @include adaptiveValue("padding-bottom", 64, 40);
+  &__container {
+    display: grid;
+    row-gap: toRem(30);
+    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: $tablet) {
+      grid-template-columns: auto;
     }
+  }
 
-    &__body {
-        @include adaptiveValue("padding-top", 100, 30, 2, $containerWidth, 991.98);
-        @media (min-width:$tablet){
-            max-width: toRem(580);
-            padding-right: toRem(20); 
-        }
+  &__body {
+    @include adaptiveValue("padding-top", 100, 30, 2, $containerWidth, 991.98);
+    @media (min-width: $tablet) {
+      max-width: toRem(580);
+      padding-right: toRem(20);
     }
+  }
 
-    &__block-header {
-        &:not(:last-child) {
-            @include adaptiveValue("margin-bottom", 54, 30);
-        }
+  &__block-header {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 54, 30);
     }
+  }
 
-    &__items {
-        display: grid;
-        @include adaptiveValue("gap", 32, 15);
-        grid-template-columns: repeat(2, 1fr);
-        &:not(:last-child) {
-            @include adaptiveValue("margin-bottom", 56, 30);
-        }
-        @media (max-width: em(540)){
-              grid-template-columns: auto;
-        }
+  &__items {
+    display: grid;
+    @include adaptiveValue("gap", 32, 15);
+    grid-template-columns: repeat(2, 1fr);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 56, 30);
     }
+    @media (max-width: em(540)) {
+      grid-template-columns: auto;
+    }
+  }
 
-    &__item {
-        background: url('@img/icons/check-dark.svg') 0 toRem(7) no-repeat;
-        padding-left: toRem(28);
-        font-size: toRem(20);
-        font-weight: 700;
-        color: $bgColorSemi;
-        line-height: 1.4;
-    }
+  &__item {
+    background: url("@img/icons/check-dark.svg") 0 toRem(7) no-repeat;
+    padding-left: toRem(28);
+    font-size: toRem(20);
+    font-weight: 700;
+    color: $bgColorSemi;
+    line-height: 1.4;
+  }
 
-    &__info {
-        border-radius: toRem(24);
-        background-color: $bgColorLite;
-        padding: toRem(12) toRem(32);
-        color: #fff;
-        line-height: 1.55;
-        a {
-            font-size: 20px;
-            font-weight: 600;
-        }
-        @media (min-width:$tablet){
-            max-width: toRem(450); 
-        }
+  &__info {
+    border-radius: toRem(24);
+    background-color: $bgColorLite;
+    padding: toRem(12) toRem(32);
+    color: #fff;
+    line-height: 1.55;
+    a {
+      font-size: 20px;
+      font-weight: 600;
     }
+    @media (min-width: $tablet) {
+      max-width: toRem(450);
+    }
+  }
 
-    &__image {
-        img {
-            max-width: 100%;
-            text-align: center;
-        }
+  &__image {
+    img {
+      max-width: 100%;
+      text-align: center;
     }
+  }
 }
 //====================================================================================================
+.services {
+  @include adaptiveValue("padding-top", 120, 40);
+  @include adaptiveValue("padding-bottom", 140, 40);
+  &__container {
+  }
+
+  &__block-header {
+    max-width: toRem(560);
+    margin: 0 auto;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 60, 30);
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: auto;
+    @media (min-width:em(670)){
+         grid-template-columns: repeat(auto-fit, minmax(toRem(320), 1fr)); 
+    }
+    @media (max-width: em(669.98)){
+         row-gap: toRem(20); 
+    }
+  }
+
+  &__item {
+  }
+}
+
+.item-service {
+  border-radius: toRem(24);
+  @media (min-width:em(670)){
+    @include adaptiveValue("padding", 32, 15);
+  }
+  @media (max-width: em(669.98)){
+     text-align: center; 
+  }
+  &--blue {
+    color: #fff;
+    text-align: center;
+    background-color: $bgColorLite;
+    @media (max-width: em(669.98)){
+         padding: toRem(20); 
+    }
+  }
+
+  &__icon {
+    border-radius: toRem(20);
+    background-color: $bgColor;
+    width: toRem(64);
+    height: toRem(64);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-width: 100%; 
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(16);
+    }
+  }
+
+  &__title {
+    font-size: toRem(24);
+    font-weight: 700;
+    line-height: 1.33;
+    &:not(:last-child) {
+      margin-bottom: toRem(12);
+    }
+  }
+
+  &__text {
+    line-height: 1.55;
+    &:not(:last-child) {
+      margin-bottom: toRem(32);
+    }
+  }
+
+  &__button {
+  }
+}
