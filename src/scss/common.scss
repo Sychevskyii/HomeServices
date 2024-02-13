@@ -1,7 +1,7 @@
 // Заголовки, загальні БЕМ блоки та інше...
 .block-header {
     display: grid;
-    gap: toRem(24);
+    @include adaptiveValue("gap", 24, 15);
     &--center {
         text-align: center;
     }
@@ -9,7 +9,6 @@
     &--inline {
         grid-template-columns: minmax(auto,toRem(586)) minmax(auto, toRem(613));
         justify-content: space-between;
-        gap: toRem(24);
         align-items: end;
     }
 

@@ -209,7 +209,7 @@
 //====================================================================================================
 .about {
   @include adaptiveValue("padding-top", 123, 40);
-  @include adaptiveValue("padding-bottom", 64, 40);
+  @include adaptiveValue("padding-bottom", 64, 20);
   &__container {
     display: grid;
     row-gap: toRem(30);
@@ -278,7 +278,7 @@
 }
 //====================================================================================================
 .services {
-  @include adaptiveValue("padding-top", 120, 40);
+  @include adaptiveValue("padding-top", 120, 20);
   @include adaptiveValue("padding-bottom", 140, 40);
   &__container {
   }
@@ -301,9 +301,6 @@
          row-gap: toRem(20); 
     }
   }
-
-  &__item {
-  }
 }
 
 .item-service {
@@ -320,6 +317,9 @@
     background-color: $bgColorLite;
     @media (max-width: em(669.98)){
          padding: toRem(20); 
+    }
+    .item-service__title {
+      color: inherit;
     }
   }
 
@@ -340,6 +340,7 @@
   }
 
   &__title {
+    color: $darkColor;
     font-size: toRem(24);
     font-weight: 700;
     line-height: 1.33;
@@ -354,7 +355,52 @@
       margin-bottom: toRem(32);
     }
   }
+}
 
-  &__button {
+//====================================================================================================
+
+.advantages {
+  @include adaptiveValue("padding-left", 60, 15);
+  @include adaptiveValue("padding-right", 60, 15);
+
+  &__container {
+  }
+
+  &__block-header {
+    @include adaptiveValue("padding-bottom", 120, 30);
+    position: relative;
+    &::after{
+      content:'';
+      position: absolute;
+      background: linear-gradient(
+            0deg,
+            rgba(20, 34, 87, 0) 0%,
+            rgba(79, 102, 183, 1),
+            rgba(20, 34, 87, 0) 100%
+          );
+      @include adaptiveValue("bottom", 60, 15);
+      left: 0;
+    }
+  }
+
+  &__items {
+  }
+
+  &__item {
+  }
+}
+
+.item-advantages {
+
+  &__icon {
+  }
+
+  &__body {
+  }
+
+  &__title {
+  }
+
+  &__text {
   }
 }
