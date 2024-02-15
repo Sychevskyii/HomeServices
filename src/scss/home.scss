@@ -360,14 +360,36 @@
 //====================================================================================================
 
 .advantages {
-  @include adaptiveValue("padding-left", 60, 15);
-  @include adaptiveValue("padding-right", 60, 15);
+  @include adaptiveValue("padding-left", 60, 15, 2, $containerWidth, 991.98);
+  @include adaptiveValue("padding-right", 60, 15, 2, $containerWidth, 991.98);
 
   &__body {
     border-radius: toRem(24);
-    @include adaptiveValue("padding-top", 64, 15);
-    @include adaptiveValue("padding-bottom", 64, 15);
+    @include adaptiveValue("padding-top", 64, 40);
+    @include adaptiveValue("padding-bottom", 64, 40);
     background-color: $bgColor;
+    position: relative;
+    @media (min-width:$tablet){
+      padding-left: toRem(70);
+      padding-right: toRem(70);
+      &::before,&::after{
+        content:'';
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: toRem(45);
+        max-height: toRem(645);
+        height: 73.295455%;
+        background: url("@img/advantages/decoration.svg") left / auto 100% no-repeat;
+      }
+      &::before{
+        left: 0;
+      }
+      &::after{
+        right: 0;
+        transform: translate(0, -50%) rotate(180deg);
+      }
+    }
   }
 
   &__container {
@@ -398,6 +420,9 @@
     @include adaptiveValue("row-gap", 60, 25);
     grid-template-columns: repeat(2, auto);
     justify-content: space-between;
+    @media (max-width:$tablet){
+      grid-template-columns: auto;
+    }
   }
 
   &__item {

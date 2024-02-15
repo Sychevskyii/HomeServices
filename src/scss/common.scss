@@ -10,6 +10,9 @@
         grid-template-columns: minmax(auto,toRem(586)) minmax(auto, toRem(613));
         justify-content: space-between;
         align-items: end;
+        @media (max-width:$tablet){
+            grid-template-columns: auto;
+          }
     }
 
     &__title {
@@ -24,6 +27,10 @@
         &--white {
             color: #fff;
         }
+
+        transform: translate(0, 10%);
+        opacity: 0;
+        transition: all 0.3s;
     }
 
 
