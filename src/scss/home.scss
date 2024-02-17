@@ -502,6 +502,10 @@
   &__container {
     display: grid;
     grid-template-columns:  repeat(2, 1fr);
+    @media (max-width:$tablet){
+      grid-template-columns: auto;
+      gap: toRem(30);
+    }
   }
 
   &__image {
@@ -509,9 +513,19 @@
       transform: translate(-10.59%, 0);
       max-width: 100%;
     }
+    @media (max-width:$tablet){
+      order: 2;
+      text-align: center;
+      img{
+        transform: translate(0,0);
+      }
+    }
   }
 
   &__content {
+    @media (max-width:$tablet){
+      order: 1;
+    }
   }
 
   &__block-header {
@@ -533,6 +547,7 @@
   @extend %listCounter;
   &__item {
     padding-left: toRem(70);
+    @include adaptiveValue("padding-left", 70, 40);
     display: grid;
     grid-template-columns: toRem(170) auto;
     gap: toRem(35);
@@ -540,6 +555,10 @@
       @include adaptiveValue("font-size", 52, 30);
       font-weight: 700;
       color: $greyColor;
+    }
+    @media (max-width: em(520)){
+      gap: toRem(5);
+      grid-template-columns: auto;
     }
   }
 
