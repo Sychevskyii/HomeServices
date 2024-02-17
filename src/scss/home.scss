@@ -12,6 +12,7 @@
     padding: toRem(80) toRem(15) toRem(30) toRem(15);
   }
   &__image {
+    position: relative;
     @include adaptiveValue("width", 412, 200, 0, $containerWidth, 991.98);
     border-radius: toRem(24);
     overflow: hidden;
@@ -21,6 +22,21 @@
     }
     @media (max-width: $tablet) {
       display: none;
+    }
+    &::after{
+      content:'';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(-35deg, #131f4b 4.15%, rgba(19, 31, 75, 0) 100%);
+    }
+    &--right {
+      &::after{
+        content:'';
+        background-image: linear-gradient(-35deg, #131f4b 4.15%, rgba(19, 31, 75, 0) 100%);
+      }
     }
   }
 
@@ -473,5 +489,67 @@
 
   &__text {
     line-height: 1.55;
+  }
+}
+//========================================================================================================================================================
+.text {
+  line-height: 1.55;
+}
+//========================================================================================================================================================
+.how {
+  @include adaptiveValue("padding-top", 155, 30);
+  @include adaptiveValue("padding-bottom", 155, 30);
+  &__container {
+    display: grid;
+    grid-template-columns:  repeat(2, 1fr);
+  }
+
+  &__image {
+    img {
+      transform: translate(-10.59%, 0);
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+  }
+
+  &__block-header {
+    max-width: toRem(400);
+    &:not(:last-child) {@include adaptiveValue("margin-bottom", 60, 30);}
+  }
+
+  &__list {
+  }
+}
+.block-header {
+
+  &__title {
+  }
+}
+.list-how {
+  display: grid;
+  @include adaptiveValue("gap", 50, 20);
+  @extend %listCounter;
+  &__item {
+    padding-left: toRem(70);
+    display: grid;
+    grid-template-columns: toRem(170) auto;
+    gap: toRem(35);
+    &::before{
+      @include adaptiveValue("font-size", 52, 30);
+      font-weight: 700;
+      color: $greyColor;
+    }
+  }
+
+  &__title {
+    @include adaptiveValue("font-size", 24, 18);
+    font-weight: 700;
+    line-height: 1.33;
+    color: $darkColor;
+  }
+
+  &__text {
   }
 }

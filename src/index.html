@@ -6,7 +6,7 @@
       @@include('html/_header.htm',{})
       <main class="page">
         <section class="hero" data-watch="navigator" data-watch-threshold="0.3">
-          <div class="hero__image">
+          <div class="hero__image hero__image--left">
             <img class="ibg" src="@img/hero/image-left.jpg" alt="A man" />
           </div>
           <div class="hero__body">
@@ -18,7 +18,7 @@
                   <li class="items-hero__item">Improvements</li>
                 </ul>
 
-                <div 
+                <div
                   class="hero__block-header block-header block-header--center"
                 >
                   <h1
@@ -71,7 +71,7 @@
               </div>
             </div>
           </div>
-          <div class="hero__image">
+          <div class="hero__image hero__image--right">
             <img class="ibg" src="@img/hero/image-right.jpg" alt="A man" />
           </div>
           <div class="hero__decor decor-hero">
@@ -343,9 +343,40 @@
             </div>
           </div>
         </section>
-        <section class="how">
+        <section class="how" data-watch="navigator" data-watch-threshold="0.3">
           <div class="how__container">
-            
+            <div class="how__image">
+              <img src="@img/how/image.jpg" alt="Image" />
+            </div>
+            <div class="how__content">
+              <div class="how__block-header block-header">
+                <h2 class="block-header__title">How HomePro works?</h2>
+              </div>
+              <ol class="how__list list-how">
+                <li class="list-how__item">
+                  <span class="list-how__title">Call us anytime 24/7</span>
+                  <span class="list-how__text text">
+                    You can contact us directly, we will quickly put you in
+                    touch with our home care professionals who are ready anytime
+                  </span>
+                </li>
+                <li class="list-how__item">
+                  <span class="list-how__title">Schedule Service</span>
+                  <span class="list-how__text text">
+                    After connecting your call, our home care experts will
+                    answer your questions and provide flexible appointment times
+                  </span>
+                </li>
+                <li class="list-how__item">
+                  <span class="list-how__title">Your request is complated</span>
+                  <span class="list-how__text text">
+                    Once your technician arrives, he will diagnose the problem
+                    and provide an estimate. If you decide to continue, the
+                    technician will get to work
+                  </span>
+                </li>
+              </ol>
+            </div>
           </div>
         </section>
       </main>
