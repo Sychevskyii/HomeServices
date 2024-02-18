@@ -573,3 +573,74 @@
   &__text {
   }
 }
+//========================================================================================================================================================
+.reviews {
+
+  &__container {
+    max-width: toRem(1160);
+  }
+
+  &__body {
+    padding: 0 toRem(72);
+    position: relative;
+  }
+
+  &__block-header {
+    max-width: toRem(650);
+    margin: 0 auto;
+    &:not(:last-child) {@include adaptiveValue("margin-bottom", 90, 30);}
+  }
+
+  &__slider {
+    
+  }
+
+  &__wrapper {
+  }
+
+  &__slide {
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform:  translate(0, -50%);
+    width: toRem(48);
+    height: toRem(48);
+    border-radius: 50%;
+    background: $greyColor url('@img/reviews/arrow.svg') center no-repeat;
+    &--left {
+      left: 0;
+    }
+  
+    &--right {
+      right: 0;
+    }
+  }
+  
+}
+
+.slide-reviews {
+
+  &__logo {
+  }
+
+  &__text {
+  }
+
+  &__user {
+  }
+
+  &__avatar {
+  }
+
+  &__body {
+  }
+
+  &__name {
+  }
+
+  &__rating {
+  }
+}
+
