@@ -1,0 +1,81 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "img": "img/blog/image1.jpg",
+            "title": "Understanding Smart Home Systems & Maintenance",
+            "url": "https://test.com",
+            "date": "19 Jan 2023",
+            "text": "<p>Discover the ultimate guide to troubleshooting common smart home issues in our latest blog post. From connectivity problems to device malfunctions.</p>",
+            "tags": {
+                "Plumbing": "https://test.com",
+                "Architecture": "https://test.com",
+                "Maintenance": "https://test.com"
+            }
+        },
+        {
+            "id": 2,
+            "img": "img/blog/image2.jpg",
+            "title": "The Ultimate Guide to Home Repairs and Renovations",
+            "url": "https://test.com",
+            "date": "19 Jan 2023",
+            "text": "<p>Discover the ultimate guide to troubleshooting common smart home issues in our latest blog post. From connectivity problems to device malfunctions.</p>",
+            "tags": {
+                "Plumbing": "https://test.com",
+                "Architecture": "https://test.com"
+            }
+        },
+        {
+            "id": 3,
+            "img": "img/blog/image3.jpg",
+            "title": "Painting Techniques for a Kitchen Refreshe",
+            "url": "https://test.com",
+            "date": "19 Jan 2023",
+            "text": "<p>Discover the ultimate guide to troubleshooting common smart home issues in our latest blog post. From connectivity problems to device malfunctions.</p>",
+            "tags": {
+                "Plumbing": "https://test.com",
+                "Architecture": "https://test.com",
+                "Maintenance": "https://test.com"
+            }
+        },
+        {
+            "id": 4,
+            "img": "img/blog/image1.jpg",
+            "title": "Understanding Smart Home Systems & Maintenance",
+            "url": "https://test.com",
+            "date": "19 Jan 2023",
+            "text": "<p>Discover the ultimate guide to troubleshooting common smart home issues in our latest blog post. From connectivity problems to device malfunctions.</p>",
+            "tags": {
+                "Plumbing": "https://test.com",
+                "Architecture": "https://test.com",
+                "Maintenance": "https://test.com"
+            }
+        },
+        {
+            "id": 5,
+            "img": "img/blog/image1.jpg",
+            "title": "Understanding Smart Home Systems & Maintenance",
+            "url": "https://test.com",
+            "date": "19 Jan 2023",
+            "text": "<p>Discover the ultimate guide to troubleshooting common smart home issues in our latest blog post. From connectivity problems to device malfunctions.</p>",
+            "tags": {
+                "Plumbing": "https://test.com",
+                "Architecture": "https://test.com",
+                "Maintenance": "https://test.com"
+            }
+        },
+        {
+            "id": 6,
+            "img": "img/blog/image1.jpg",
+            "title": "Understanding Smart Home Systems & Maintenance",
+            "url": "https://test.com",
+            "date": "19 Jan 2023",
+            "text": "<p>Discover the ultimate guide to troubleshooting common smart home issues in our latest blog post. From connectivity problems to device malfunctions.</p>",
+            "tags": {
+                "Plumbing": "https://test.com",
+                "Architecture": "https://test.com",
+                "Maintenance": "https://test.com"
+            }
+        }
+    ]
+}

@@ -756,24 +756,69 @@
 .item-blog {
 
   &__image {
+    aspect-ratio: 444 / 300;
+    border-radius: toRem(24);
+    overflow: hidden;
+    img {
+      transition: transform 0.5s ease;
+    }
+    &:not(:last-child) {margin-bottom: toRem(24);}
+    @media (any-hover: hover){
+      &:hover{
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
   }
 
   &__date {
+    line-height: 1.55;
+    &:not(:last-child) {margin-bottom: toRem(16);}
   }
 
   &__title {
+    &:not(:last-child) {margin-bottom: toRem(16);}
   }
 
   &__link-title {
+    color: $darkColor;
+    @include adaptiveValue("font-size", 32, 28);
+    line-height: 1.25;
+    font-weight: 700;
+    @media (any-hover: hover){
+      &:hover{
+        text-decoration: underline;
+      }
+    }
   }
 
   &__text {
+    &:not(:last-child) {margin-bottom: toRem(24);}
   }
 
   &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: toRem(12);
+    row-gap: toRem(3);
   }
 
   &__tag {
+    background-color: #F3F5F9;
+    padding: toRem(8) toRem(016);
+    color: #545971;
+    font-size: 14px;
+    line-height: 1.42;
+    font-weight: 600;
+    border-radius: toRem(30);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    @media (any-hover: hover){
+      &:hover{
+        background-color: $bgColorLite;
+        color: #fff;
+      }
+    }
   }
 }
 
