@@ -48,9 +48,7 @@
             transform: translate(0, 0);
             opacity: 1;
         }
-        p {
-            line-height: 1.55;
-        }
+        
     }
 }
 
@@ -60,7 +58,15 @@
 //     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad quia, quos illo exercitationem aliquam deserunt?</p>
 // </div>
 // </div>
+//========================================================================================================================================================
 
+.text {
+    line-height: 1.55;
+    p {
+        &:not(:last-child) {margin-bottom: toRem(15);}
+    }
+}
+//========================================================================================================================================================
 
 .done {
     display: flex;

@@ -575,14 +575,17 @@
 }
 //========================================================================================================================================================
 .reviews {
-
+  @include adaptiveValue("padding-top", 130, 0);
+  @include adaptiveValue("padding-bottom", 130, 40);
   &__container {
     max-width: toRem(1160);
   }
 
   &__body {
-    padding: 0 toRem(72);
     position: relative;
+    @media (min-width: em(600)) {
+      padding: 0 toRem(72);
+    }
   }
 
   &__block-header {
@@ -592,7 +595,7 @@
   }
 
   &__slider {
-    
+    &:not(:last-child) {@include adaptiveValue("margin-bottom", 106, 30);}
   }
 
   &__wrapper {
@@ -604,43 +607,112 @@
   &__arrow {
     position: absolute;
     top: 50%;
-    transform:  translate(0, -50%);
+    transform: translate(0, -50%);
     width: toRem(48);
     height: toRem(48);
     border-radius: 50%;
-    background: $greyColor url('@img/reviews/arrow.svg') center no-repeat;
+    background: $bgColorLite url('@img/reviews/arrow.svg') center no-repeat;
     &--left {
       left: 0;
+      transform: translate(0, -50%) rotate(-180deg);
     }
   
     &--right {
       right: 0;
     }
+
+    &.swiper-button-disabled {
+      background: #e3e6f0 url('@img/reviews/arrow.svg') center no-repeat;
+      pointer-events: none;
+      cursor: default;
+    }
+    @media (max-width: em(600)){
+        display: none;
+    }
   }
   
+  &__bullets {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: toRem(12);
+    row-gap: toRem(3);
+    .swiper-pagination-bullet {
+      transition: all 0.3s ease;
+      flex: 0 0 toRem(12);
+      height: toRem(12);
+      border-radius: 50%;
+      background-color: #e3e6f0;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: $bgColorLite;
+      border-radius: 24px;
+      flex: 0 0 toRem(40);
+    }
+  }
 }
 
 .slide-reviews {
-
+  text-align: center;
   &__logo {
+    position: relative;
+    text-align: center;
+    padding-bottom: toRem(25);
+    &:not(:last-child) {@include adaptiveValue("margin-bottom", 40, 25);}
+    &::before{
+      content:'';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: toRem(1);
+      background: linear-gradient(
+            90deg,
+            rgba(20, 34, 87, 0) 0%,
+            $greyColor 50%,
+            rgba(20, 34, 87, 0) 100%
+          );
+    }
   }
 
   &__text {
+    max-width: toRem(740);
+    display: inline-block;
+    &:not(:last-child) {@include adaptiveValue("margin-bottom", 40, 20);}
   }
 
   &__user {
+    text-align: left;
+    display: inline-flex;
+    gap: toRem(32);
   }
 
   &__avatar {
+    flex: 0 0 toRem(76);
+    height: toRem(76);
+    border-radius: 50%;
+    img {
+      max-width: 100%;
+    }
   }
 
   &__body {
   }
 
   &__name {
+    @include adaptiveValue("font-size", 24, 18);
+    font-weight: 700;
+    line-height: 1.33;
+    color: $darkColor;
+    &:not(:last-child) {margin-bottom: toRem(8);}
   }
 
   &__rating {
+    .rating__value {
+      display: none;
+    }
   }
 }
 
