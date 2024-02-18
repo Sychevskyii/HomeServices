@@ -498,7 +498,7 @@
 //========================================================================================================================================================
 .how {
   @include adaptiveValue("padding-top", 155, 30);
-  @include adaptiveValue("padding-bottom", 155, 30);
+  @include adaptiveValue("padding-bottom", 155, 20);
   &__container {
     display: grid;
     grid-template-columns:  repeat(2, 1fr);
@@ -575,7 +575,7 @@
 }
 //========================================================================================================================================================
 .reviews {
-  @include adaptiveValue("padding-top", 130, 0);
+  @include adaptiveValue("padding-top", 130, 20);
   @include adaptiveValue("padding-bottom", 130, 40);
   &__container {
     max-width: toRem(1160);
@@ -713,6 +713,67 @@
     .rating__value {
       display: none;
     }
+  }
+}
+//========================================================================================================================================================
+.blog {
+  @include adaptiveValue("padding-top", 84, 20);
+  @include adaptiveValue("padding-bottom", 84, 40);
+  &__container {
+    display: grid;
+  }
+
+  &__block-header {
+    max-width: toRem(690);
+    margin: 0 auto;
+    &:not(:last-child) {@include adaptiveValue("margin-bottom", 56, 25);}
+  }
+
+  &__items {
+    display: grid;
+    gap: toRem(48);
+    grid-template-columns: repeat(auto-fill, minmax(toRem(400), 1fr));
+    &:not(:last-child) {@include adaptiveValue("margin-bottom", 56, 20);}
+    @media (max-width:$mobileSmall){
+      grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
+    }
+  }
+
+  &__item {
+  }
+
+  &__view-more {
+    justify-self: center;
+    color: $bgColorLite;
+    @include adaptiveValue("font-size", 24, 18);
+    line-height: 1.33;
+    font-weight: 700;
+    padding-right: em(20 , 24);
+    background: url('@img/icons/arrow-right.svg') right no-repeat;
+  }
+}
+
+.item-blog {
+
+  &__image {
+  }
+
+  &__date {
+  }
+
+  &__title {
+  }
+
+  &__link-title {
+  }
+
+  &__text {
+  }
+
+  &__tags {
+  }
+
+  &__tag {
   }
 }
 
