@@ -750,6 +750,11 @@
     font-weight: 700;
     padding-right: em(20 , 24);
     background: url('@img/icons/arrow-right.svg') right no-repeat;
+    @media (any-hover: hover){
+      &:hover{
+        text-decoration: underline;
+      }
+    }
   }
 }
 
