@@ -1,55 +1,57 @@
 // Заголовки, загальні БЕМ блоки та інше...
 .block-header {
-    display: grid;
-    @include adaptiveValue("gap", 24, 15);
-    &--center {
-        text-align: center;
+  display: grid;
+  @include adaptiveValue("gap", 24, 15);
+  &--center {
+    text-align: center;
+  }
+
+  &--inline {
+    grid-template-columns: minmax(auto, toRem(586)) minmax(auto, toRem(613));
+    justify-content: space-between;
+    align-items: end;
+    @media (max-width: $tablet) {
+      grid-template-columns: auto;
+    }
+  }
+
+  &__title {
+    color: $darkColor;
+    @include adaptiveValue("font-size", 52, 32);
+    font-weight: 700;
+    line-height: 1.23;
+    &--big {
+      @include adaptiveValue("font-size", 64, 38);
     }
 
-    &--inline {
-        grid-template-columns: minmax(auto,toRem(586)) minmax(auto, toRem(613));
-        justify-content: space-between;
-        align-items: end;
-        @media (max-width:$tablet){
-            grid-template-columns: auto;
-          }
+    &--white {
+      color: #fff;
     }
 
-    &__title {
-        color: $darkColor;
-        @include adaptiveValue("font-size", 52, 32);
-        font-weight: 700;
-        line-height: 1.23;
-        &--big {
-            @include adaptiveValue("font-size", 64, 38);
-        }
+    transform: translate(0, 15%);
+    opacity: 0;
+    transition:
+      transform 0.5s,
+      opacity 0.5s;
 
-        &--white {
-            color: #fff;
-        }
-
-        transform: translate(0, 15%);
-        opacity: 0;
-        transition: transform 0.5s, opacity 0.5s;
-
-        ._watcher-view & {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
+    ._watcher-view & {
+      transform: translate(0, 0);
+      opacity: 1;
     }
+  }
 
+  &__text {
+    transform: translate(0, 15%);
+    opacity: 0;
+    transition:
+      transform 0.5s 0.3s,
+      opacity 0.5s 0.3s;
 
-    &__text {
-        transform: translate(0, 15%);
-        opacity: 0;
-        transition: transform 0.5s 0.3s, opacity 0.5s 0.3s;
-
-        ._watcher-view & {
-            transform: translate(0, 0);
-            opacity: 1;
-        }
-        
+    ._watcher-view & {
+      transform: translate(0, 0);
+      opacity: 1;
     }
+  }
 }
 
 // <div class="block-header">
@@ -61,22 +63,34 @@
 //========================================================================================================================================================
 
 .text {
-    line-height: 1.55;
-    p {
-        &:not(:last-child) {margin-bottom: toRem(15);}
+  line-height: 1.55;
+  p {
+    &:not(:last-child) {
+      margin-bottom: toRem(15);
     }
+  }
+  a {
+    font-weight: 700;
+    color: $bgColorLite;
+    text-decoration: underline;
+    @media (any-hover: hover){
+        &:hover{
+            text-decoration: none;
+        }
+    }
+  }
 }
 //========================================================================================================================================================
 
 .done {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: toRem(40);
-    row-gap: toRem(8);
-    &__item {
-        color: $bgColorLite;
-        padding-left: toRem(32);
-        line-height: 1.3;
-        background: url("@img/icons/check.svg") left toRem(1) no-repeat;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: toRem(40);
+  row-gap: toRem(8);
+  &__item {
+    color: $bgColorLite;
+    padding-left: toRem(32);
+    line-height: 1.3;
+    background: url("@img/icons/check.svg") left toRem(1) no-repeat;
+  }
 }
