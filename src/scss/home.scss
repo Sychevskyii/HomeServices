@@ -868,6 +868,7 @@
   @include adaptiveValue("padding-bottom", 230, 40);
   &__container {
     display: grid;
+    align-items: start;
     grid-template-columns: auto 57.686981%;
     gap: toRem(20); 
   }
@@ -883,19 +884,28 @@
   display: grid;
   gap: toRem(12);
   &__item {
+    border-radius: toRem(12);
+    transition: background-color 0.5s ease;
+    padding: toRem(24) toRem(32);
+    &[open] {
+      background-color: #f3f5f9;
+    }
   }
 
   &__title {
     list-style: none;
-    padding: toRem(24) toRem(32);
     @include adaptiveValue("font-size", 24, 18);
     font-weight: 700;
+    ._spoller-init & {
+      cursor: pointer;
+    }
     &::marker {
       display: none;
     }
   }
 
   &__body {
+    padding-top: toRem(16);
     font-size: toRem(16);
     line-height: 1.5;
   }
