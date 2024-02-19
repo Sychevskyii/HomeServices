@@ -4,6 +4,9 @@ import { isMobile } from "./functions.js";
 import { flsModules } from "./modules.js";
 
 const blogItems = document.querySelector(".blog__items");
+let data;
+let startItem = 0;
+let endItem = 3;
 
 if (blogItems) {
   loadBlogItems();
@@ -15,23 +18,26 @@ async function loadBlogItems() {
   });
   if (response.ok) {
     const responseResult = await response.json();
-    initBlog(responseResult);
+    data = responseResult;
+    initBlog(data, startItem, endItem);
   } else {
     alert("Error!");
   }
 }
 
-function initBlog(data) {
-  for (let index = 0; index < 3; index += 1) {
-    const item = data.items[index];
+function initBlog(data, startItem, endItem) {
+  const dataPart = data.items.slice(startItem, endItem);
+
+  dataPart.forEach((item) => {
     buildblogItem(item);
-  }
+  });
+  hideViewMore();
 }
 
 function buildblogItem(item) {
   let blogItemTemplate = ``;
 
-  blogItemTemplate += `<article class="blog__item item-blog">`;
+  blogItemTemplate += `<article data-id="${item.id}" class="blog__item item-blog">`;
 
   item.img
     ? (blogItemTemplate += `<a href="${item.url}" class="item-blog__image">
@@ -65,5 +71,28 @@ function buildblogItem(item) {
 
   blogItemTemplate += `</article>`;
 
-  blogItems.insertAdjacentHTML('beforeend', blogItemTemplate);
+  blogItems.insertAdjacentHTML("beforeend", blogItemTemplate);
+}
+
+document.addEventListener("click", onShowAllCards);
+
+function hideViewMore() {
+  const dataItemsLength = data.items.length;
+  const currentItems = document.querySelectorAll(".item-blog").length;
+  const viewMore = document.querySelector(".blog__view-more");
+  currentItems < dataItemsLength
+    ? (viewMore.hidden = false)
+    : (viewMore.hidden = true);
+}
+
+function onShowAllCards(e) {
+  const targetElement = e.target;
+
+  startItem = document.querySelectorAll(".item-blog").length;
+  endItem = startItem + 3;
+
+  if (targetElement.closest(".blog__view-more")) {
+    initBlog(data, startItem, endItem);
+    e.preventDefault();
+  }
 }
