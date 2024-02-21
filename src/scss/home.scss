@@ -870,7 +870,11 @@
     display: grid;
     align-items: start;
     grid-template-columns: auto 57.686981%;
-    gap: toRem(20); 
+    column-gap: toRem(20);
+    row-gap: toRem(30);
+    @media (max-width: $tablet) {
+      grid-template-columns: auto;
+    }
   }
 
   &__block-header {
@@ -890,9 +894,14 @@
     &[open] {
       background-color: #f3f5f9;
     }
+    @media (max-width: $mobileSmall) {
+      padding: toRem(15) toRem(24);
+    }
   }
 
   &__title {
+    line-height: 1.2;
+    padding-right: toRem(30);
     list-style: none;
     @include adaptiveValue("font-size", 24, 18);
     font-weight: 700;
@@ -902,8 +911,36 @@
     &::marker {
       display: none;
     }
+    ._spoller-init & {
+      position: relative;
+      cursor: pointer;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        background-color: $darkColor;
+        height: toRem(2);
+        width: toRem(12);
+        transition: transform 0.5s ease 0s;
+      }
+      &::before {
+        transform: translate(-75%, -50%) rotate(40deg);
+      }
+      &::after {
+        transform: translate(0, -50%) rotate(-40deg);
+      }
+      &._spoller-active {
+        &::before {
+          transform: translateX(-75%) rotate(-40deg);
+        }
+        &::after {
+          transform: rotate(40deg);
+        }
+      }
+    }
   }
-
   &__body {
     padding-top: toRem(16);
     font-size: toRem(16);
