@@ -603,11 +603,7 @@
             </button>
           </div>
         </section>
-        <section
-          class="questions"
-          data-watch="navigator"
-          data-watch-threshold="0.3"
-        >
+        <section class="questions" data-watch data-watch-threshold="0.3">
           <div class="questions__container">
             <div class="questions__block-header block-header block-header">
               <h2 class="block-header__title">Frequently Asked Questions</h2>
@@ -615,7 +611,11 @@
                 <p>Still need help?<a href="#">Get Help Now</a></p>
               </div>
             </div>
-            <div data-spollers data-one-spoller class="questions__spollers spollers-questions">
+            <div
+              data-spollers
+              data-one-spoller
+              class="questions__spollers spollers-questions"
+            >
               <details data-open class="spollers-questions__item">
                 <summary class="spollers-questions__title">
                   What is HomePro?
@@ -656,6 +656,31 @@
                   services, including repairs, maintenance, cleaning, and more.
                 </div>
               </details>
+            </div>
+          </div>
+        </section>
+        <section class="talk" data-watch data-watch-threshold="0.3">
+          <div class="talk__container">
+            <div class="talk__content">
+              <div class="talk__block-header block-header">
+                <h1
+                  class="block-header__title block-header__title--white block-header__title--big"
+                >
+                  Already to improve or repair your home? Let’s Talk!
+                </h1>
+              </div>
+              <ul class="talk__done done">
+                <li class="done__item">Free Quotes</li>
+                <li class="done__item">100% Commitment-Free</li>
+              </ul>
+              <a href="#" class="talk__button button button--icon"
+              ><span>Call Us Now</span></a
+            >
+            </div>
+          </div>
+          <div class="talk__footer">
+            <div class="talk__image">
+              <img src="@img/talk/image.png" alt="Image" />
             </div>
           </div>
         </section>

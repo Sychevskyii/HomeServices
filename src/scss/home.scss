@@ -948,3 +948,45 @@
   }
 }
 //========================================================================================================================================================
+.talk {
+  background-color: $bgColor;
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include adaptiveValue("gap", 100, 30);
+  }
+
+  &__content {
+    @include adaptiveValue("padding-top", 165, 40);
+    @include adaptiveValue("padding-bottom", 106, 40);
+    position: relative;
+    &::before {
+      content: "";
+      background: url("@img/talk/decor.svg") 0 0 / 83% no-repeat;
+      position: absolute;
+      width: 100%;
+      aspect-ratio: 581 / 44;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &__block-header {
+  }
+
+  &__done {
+  }
+
+  &__footer {
+    display: grid;
+    justify-content: end;
+  }
+
+  &__image {
+  }
+}
+
+.done {
+  &__item {
+  }
+}
