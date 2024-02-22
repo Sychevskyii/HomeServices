@@ -950,6 +950,8 @@
 //========================================================================================================================================================
 .talk {
   background-color: $bgColor;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
   &__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -977,12 +979,11 @@
   &__done {
   }
 
-  &__footer {
-    display: grid;
-    justify-content: end;
-  }
-
   &__image {
+    text-align: right;
+    img {
+      max-width: 100%;
+    }
   }
 }
 
