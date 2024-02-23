@@ -11,12 +11,25 @@
   }
 
   &__subscribe {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 54, 30);
+    }
   }
 
   &__body {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: toRem(30);
+    justify-content: space-between;
+    @media (max-width:$mobile){
+      grid-template-columns: auto;
+    }
   }
 
   &__info {
+    max-width: toRem(460);
+    display: grid;
+    @include adaptiveValue("gap", 32, 20);
   }
 
   &__logo {
@@ -39,12 +52,21 @@
   }
 }
 .subscribe {
-    border-radius: toRem(24);
-    background-color: #4ac9ff;
-    padding: toRem(24);
-    display: grid;
-    align-items: center;
-    grid-template-columns: auto 35.833333%;
+  border-radius: toRem(24);
+  background-color: #4ac9ff;
+  padding: toRem(24);
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto toRem(516);
+  gap: toRem(24);
+  @media (max-width:$tablet){
+    grid-template-columns: auto;
+  }
+  @media (max-width:$mobileSmall){
+     margin: 0 toRem(-15);
+     border-radius: 0; 
+     padding: toRem(15);
+  }
   &__body {
   }
 
@@ -52,7 +74,9 @@
     font-size: toRem(24);
     line-height: 1.33;
     font-weight: 700;
-    &:not(:last-child) {margin-bottom: toRem(12);}
+    &:not(:last-child) {
+      margin-bottom: toRem(12);
+    }
   }
 
   &__text {
@@ -63,18 +87,27 @@
     padding: toRem(12);
     background-color: #fff;
     display: flex;
-    position: relative;
-    .form__error{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        color: red;
-    }
+    @media (max-width:$mobileSmall){
+      flex-direction: column;
+      border-radius: toRem(10);
+      overflow: hidden;
+      gap: toRem(10);
+      width: 100%; 
+   }
   }
 
   &__input {
     flex: 1 1 auto;
-    padding: 0 toRem(8);
+    padding: toRem(8) toRem(8);
+    &._form-error {
+      &::placeholder {
+        color: red;
+      }
+      color: red;
+    }
+    @media (max-width:$mobileSmall){
+      width: 100%; 
+   }
   }
 
   &__button {
@@ -85,6 +118,11 @@
 .button--min {
 }
 .social {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: toRem(10);
+  row-gap: toRem(5);
+  align-items: center;
   &__item {
   }
 
@@ -93,21 +131,78 @@
 }
 .menu-footer {
   &__spollers {
+    display: flex;
+    flex-wrap: wrap;
+    @include adaptiveValue("gap", 130, 10);
+    @media (max-width:$mobileSmall){
+       flex-direction: column; 
+    }
   }
 
   &__block {
   }
 
   &__title {
+    list-style: none;
+    @include adaptiveValue("font-size", 24, 18);
+    font-weight: 700;
+    font-size: toRem(24);
+    line-height: 1.33;
+    ._spoller-init & {
+      cursor: pointer;
+    }
+    &::marker {
+      display: none;
+    }
+    ._spoller-init & {
+      position: relative;
+      padding-right: toRem(30);
+      cursor: pointer;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        background-color: #fff;
+        height: toRem(2);
+        width: toRem(8);
+        transition: transform 0.5s ease 0s;
+      }
+      &::before {
+        transform: translate(-75%, -50%) rotate(40deg);
+      }
+      &::after {
+        transform: translate(0, -50%) rotate(-40deg);
+      }
+      &._spoller-active {
+        &::before {
+          transform: translateX(-75%) rotate(-40deg);
+        }
+        &::after {
+          transform: rotate(40deg);
+        }
+      }
+    }
   }
 
   &__list {
+    padding-top: toRem(24);
+    display: grid;
+    gap: toRem(12);
   }
 
   &__item {
   }
 
   &__link {
+    font-size: toRem(20);
+    line-height: 1.6;
+    @media (any-hover: hover){
+      &:hover{
+        text-decoration: underline;
+      }
+    }
   }
 }
 

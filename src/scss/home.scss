@@ -960,6 +960,8 @@
   }
 
   &__content {
+    position: relative;
+    z-index: 2;
     @include adaptiveValue("padding-top", 165, 40);
     @include adaptiveValue("padding-bottom", 106, 40);
     position: relative;

@@ -24,6 +24,9 @@
 		line-height: 1.5;
 		padding: toRem(12) toRem(36);
 		min-height: 0;
+		@media (max-width:$mobileSmall){
+			padding: toRem(12) toRem(24);
+		 }
 	}
 	&--white {
 		background-color: #fff;
